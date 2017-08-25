@@ -14,12 +14,12 @@ div.splash {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(279deg, #ff4d4d, #ff924d, #fff84d, #71ff4d, #4dffee, #4dbaff, #564dff, #cc4dff);
+	background: linear-gradient(279deg, #ff5353, #f7ff53, #53ff93, #53c4ff);
 	background-size: 1600% 1600%;
-	-webkit-animation: AnimationName 8s ease infinite;
-	-moz-animation: AnimationName 8s ease infinite;
-	-o-animation: AnimationName 8s ease infinite;
-	animation: AnimationName 8s ease infinite;
+	-webkit-animation: AnimationName 3s ease infinite;
+	-moz-animation: AnimationName 3s ease infinite;
+	-o-animation: AnimationName 3s ease infinite;
+	animation: AnimationName 3s ease infinite;
 }
 
 div.splash img.logo {
