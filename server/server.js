@@ -11,6 +11,7 @@ var express = require('express');
 var path = require('path');
 var socket_io = require('socket.io')
 var http = require('http');
+const bodyParser = require('body-parser');
 var util = require('./myutil.js');
 
 var userApp = express();
@@ -36,6 +37,8 @@ io.sockets.on('connection', function(socket) {
 });
 
 
+adminApp.use(bodyParser.json());
+
 adminApp.get('/', function(req, res, next) {
     // 接続中のクライアントからランダムにいくつか選んで色を変更する
     
@@ -49,6 +52,33 @@ adminApp.get('/', function(req, res, next) {
     
     // io.sockets.emit('greeting', {color : '#' + req.query.color});
 
+    res.sendStatus(200);
+});
+
+adminApp.post('/api/color', function(req, res) {
+    var sockets = io.sockets.connected;
+    var randomSids = util.shuffle(util.keys2list(io.sockets.adapter.sids));
+    var N = -1;
+    
+    // colorsがなければ何もしない
+    if(req.body.colors == undefined) {
+        res.sendStatus(500);
+        return;
+    }
+    
+    // リストの長さを取得する
+    N = req.body.colors.length;
+    
+    console.log(req.body);
+    console.log(req.body.colors);
+    console.log(req.body.colors[0]);
+    console.log(req.body.colors.length);
+    
+    io.sockets.emit('greeting', {color : 'black'});
+    for(var k in randomSids) {
+        sockets[randomSids[k]].emit('greeting', {color : req.body.colors[k % N]});
+    }
+    
     res.sendStatus(200);
 });
 
