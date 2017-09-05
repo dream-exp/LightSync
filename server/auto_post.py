@@ -8,12 +8,15 @@ Created on 08/26/17 14:03:55
 """
 
 import sys
+import os
 import requests
 import json
 import time
 
+os.environ['NO_PROXY'] = 'localhost'
+
 url = 'http://localhost:3001/api/color'
-data = {'colors' : ['#FF0000', '#00FF00', '#0000FF', '#000000']}
+data = {'colors' : ['#E07070', '#70E070', '#7070E0', '#E0E070', '#E070E0']}
 headers = {'Accept' : 'application/json', 'Content-type' : 'application/json'}
 
 for k in range(100):
