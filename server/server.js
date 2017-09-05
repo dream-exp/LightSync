@@ -69,12 +69,7 @@ adminApp.post('/api/color', function(req, res) {
     // リストの長さを取得する
     N = req.body.colors.length;
     
-    console.log(req.body);
-    console.log(req.body.colors);
-    console.log(req.body.colors[0]);
-    console.log(req.body.colors.length);
-    
-    io.sockets.emit('greeting', {color : 'black'});
+    //io.sockets.emit('greeting', {color : 'black'});
     for(var k in randomSids) {
         sockets[randomSids[k]].emit('greeting', {color : req.body.colors[k % N]});
     }
