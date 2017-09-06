@@ -8,7 +8,7 @@ html, body {
 	height: 100%;
 }
 
-div.splash, div.wait {
+div.splash, div.wait, div#app-container {
 	width: 100%;
 	height: 100%;
 	display: flex;
