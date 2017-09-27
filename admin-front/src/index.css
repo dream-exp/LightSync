@@ -1,0 +1,130 @@
+body {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: #000;
+}
+
+header {
+	width: 100%;
+	height: 60px;
+	margin-bottom: 30px;
+	padding: 0 35px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	border-bottom: solid 1px #7c7c7c;
+}
+
+header img {
+	width: 10%;
+	float: left;
+}
+
+header div.current_colors {
+	width: 90%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+div.current_colors span {
+	height: 40px;
+	width: 120px;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 6px;
+	display: inline-block;
+	background: #24B4A5;
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+div.current_colors span:last-child {
+	margin-right: 0;
+}
+
+h2 {
+	width: 95%;
+	margin: 10px auto 20px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	-webkit-background-size: 10px 10px;
+	-moz-background-size: 10px 10px;
+	background-size: 10px 10px;
+	background-color: #000000;
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0,
+	            color-stop(.25, #4c4c4c), color-stop(.25, transparent),
+	            color-stop(.5, transparent), color-stop(.5, #4c4c4c),
+	            color-stop(.75, #4c4c4c), color-stop(.75, transparent),
+	            to(transparent));
+	background-image: -webkit-linear-gradient(45deg, #4c4c4c 25%, transparent 25%,
+	          transparent 50%, #4c4c4c 50%, #4c4c4c 75%,
+	          transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, #4c4c4c 25%, transparent 25%,
+	          transparent 50%, #4c4c4c 50%, #4c4c4c 75%,
+	          transparent 75%, transparent);
+	background-image: -ms-linear-gradient(45deg, #4c4c4c 25%, transparent 25%,
+	          transparent 50%, #4c4c4c 50%, #4c4c4c 75%,
+	          transparent 75%, transparent);
+	background-image: -o-linear-gradient(45deg, #4c4c4c 25%, transparent 25%,
+	          transparent 50%, #4c4c4c 50%, #4c4c4c 75%,
+	          transparent 75%, transparent);
+	background-image: linear-gradient(45deg, #4c4c4c 25%, transparent 25%,
+	          transparent 50%, #4c4c4c 50%, #4c4c4c 75%,
+	          transparent 75%, transparent);
+	color: #fff;
+}
+
+div.ctrl_button {
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	margin-right: 20px;
+}
+
+div.buttons {
+	width: 95%;
+	margin: 0 auto 30px;
+	display: flex;
+	flex-direction: row;
+}
+
+button.ctrl_btn {
+	width: 200px;
+	height: 60px;
+	padding: 20px;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+	border: solid 2px #7C7C7C;
+	border-radius: 7px;
+	background: none;
+	color: #fff;
+	font-size: 16px;
+}
+
+button.ctrl_btn:hover {
+	background: #333333;
+}
+
+button.active {
+	background: #00B3C2;
+	border: none;
+}
+
+button.active:hover {
+	background: #2A9BAC;
+}
+
+div.thumbnails {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+span.color_thumbnail {
+	width: 30px;
+	height: 30px;
+	margin: 0 6px;
+}
