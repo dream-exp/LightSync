@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     
     this.state = {
-      currColors : ["#B42424", "green"]
+      currColors : []
     };
 
     this.changeColor = this.changeColor.bind(this);
