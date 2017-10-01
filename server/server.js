@@ -21,6 +21,7 @@ var adminApp = express();
 var userServer = http.Server(userApp);
 var io = socket_io.listen(userServer);
 
+
 userApp.get('/', function(req, res) {
     res.sendFile(path.resolve('index.html'));
 });
@@ -34,31 +35,37 @@ io.sockets.on('connection', function(socket) {
     socket.on('disconnect', function() {
         console.log(socket.id + ' disconnected.');
     });
+
+    socket.on('control color', function (data, fn) {
+        sendColors(data.colors);
+    });
 });
+
+/**
+ * 色のリストをクライアントにランダムに投げる関数
+ * @param colors 色のリスト
+ */
+function sendColors (colors) {
+    var sockets = io.sockets.connected;
+    var randomSids = util.shuffle(util.keys2list(io.sockets.adapter.sids));
+    var N = -1;
+    
+    // リストの長さを取得する
+    N = colors.length;
+    
+    for(var k in randomSids) {
+        sockets[randomSids[k]].emit('greeting', {color : colors[k % N]});
+    }
+}
 
 
 adminApp.use(bodyParser.json());
 
 adminApp.get('/', function(req, res, next) {
-    // 接続中のクライアントからランダムにいくつか選んで色を変更する
-    
-    var sockets = io.sockets.connected;
-    var randomSids = util.shuffle(util.keys2list(io.sockets.adapter.sids));
-
-    io.sockets.emit('greeting', {color : 'black'});
-    for(let sid of randomSids.slice(0, 3)) {
-        sockets[sid].emit('greeting', {color : '#' + req.query.color});
-    }
-    
-    // io.sockets.emit('greeting', {color : '#' + req.query.color});
-
     res.sendStatus(200);
 });
 
 adminApp.post('/api/color', function(req, res) {
-    var sockets = io.sockets.connected;
-    var randomSids = util.shuffle(util.keys2list(io.sockets.adapter.sids));
-    var N = -1;
     
     // colorsがなければ何もしない
     if(req.body.colors == undefined) {
@@ -66,14 +73,9 @@ adminApp.post('/api/color', function(req, res) {
         return;
     }
     
-    // リストの長さを取得する
-    N = req.body.colors.length;
-    
-    //io.sockets.emit('greeting', {color : 'black'});
-    for(var k in randomSids) {
-        sockets[randomSids[k]].emit('greeting', {color : req.body.colors[k % N]});
-    }
-    
+    // POSTで受け取った色をクライアントに投げる
+    sendColors(req.body.colors)
+
     res.sendStatus(200);
 });
 
