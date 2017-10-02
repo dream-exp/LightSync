@@ -33,7 +33,7 @@ class App extends Component {
 
   render() {
     return(
-      <div>
+      <div className="controller">
         <header>
           <img src="logo.png" />
           <div className="current_colors">
@@ -43,17 +43,42 @@ class App extends Component {
           </div>
         </header>
         <div className="group_panel">
-          <h2>Group1</h2>
+          <h2>Group1(グループの特徴)</h2>
           <div className="buttons">
-              <CtrlButton text="testtest" isActive={false} sendColors={["#cc4214", "#cc13b6"]} parentMethod={this.changeColor} />
-              <CtrlButton text="testtest" isActive={false} sendColors={["#13aacc"]} parentMethod={this.changeColor} />
+              <CtrlButton text="Start" isActive={false} sendColors={["#cc4214", "#cc13b6"]} parentMethod={this.changeColor} />
+              <CtrlButton text="2曲目が始まったタイミング" isActive={false} sendColors={["#13aacc"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CEACBB", "#cc13b6"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CDD010"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#1425CE", "#cc13b6"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#000000"]} parentMethod={this.changeColor} />
           </div>
         </div>
         <div className="group_panel">
-          <h2>Group2</h2>
+          <h2>Group2(グループの特徴)</h2>
           <div className="buttons">
-              <CtrlButton text="testtest" isActive={false} sendColors={["#1cedc6", "#64f720"]} parentMethod={this.changeColor} />
-              <CtrlButton text="testtest" isActive={false} sendColors={["#bfa12b"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#8DB5CF", "#26D511"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CDD010"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#BA0ACE", "#B7D292"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#2D00CC"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CEACBB", "#CC31C0"]} parentMethod={this.changeColor} />
+          </div>
+        </div>
+        <div className="group_panel">
+          <h2>Group3(グループの特徴)</h2>
+          <div className="buttons">
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CC000A", "#CFD008"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#17BACE", "#1CD51A"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#AE00CC"]} parentMethod={this.changeColor} />
+          </div>
+        </div>
+        <div className="group_panel">
+          <h2>Group4(グループの特徴)</h2>
+          <div className="buttons">
+              <CtrlButton text="testtest" isActive={false} sendColors={["#cc4214", "#cc13b6"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CDD010"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#4DD405", "#cc13b6"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#13aacc"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#CEACBB", "#A6D407"]} parentMethod={this.changeColor} />
           </div>
         </div>
       </div>
