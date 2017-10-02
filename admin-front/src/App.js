@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 import './App.css';
-
 import CurrColor from './CurrColor'
 import CtrlButton from './CtrlButton'
 
 
-let socket = io('http://172.20.10.2:3001')
+let socket = io('http://localhost:3000')
 
 class App extends Component {
   constructor(props) {
@@ -16,18 +15,13 @@ class App extends Component {
       currColors : []
     };
 
-    this.changeColor = this.changeColor.bind(this);
+    this.changeColor = this.changeColor.bind(this)
   }
 
   changeColor(colorList) {
+    socket.emit("control color", {colors : colorList});
     this.setState({
       currColors : colorList
-    });
-  }
-
-  componentDidMount() {
-    socket.on('greeting', color => {
-      this.setState({ color: color });
     });
   }
 
@@ -56,7 +50,7 @@ class App extends Component {
         <div className="group_panel">
           <h2>Group2(グループの特徴)</h2>
           <div className="buttons">
-              <CtrlButton text="testtest" isActive={false} sendColors={["#8DB5CF", "#26D511"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#8DB5CF", "#26D511", "#F74816"]} parentMethod={this.changeColor} />
               <CtrlButton text="testtest" isActive={false} sendColors={["#CDD010"]} parentMethod={this.changeColor} />
               <CtrlButton text="testtest" isActive={false} sendColors={["#BA0ACE", "#B7D292"]} parentMethod={this.changeColor} />
               <CtrlButton text="testtest" isActive={false} sendColors={["#2D00CC"]} parentMethod={this.changeColor} />
@@ -67,7 +61,7 @@ class App extends Component {
           <h2>Group3(グループの特徴)</h2>
           <div className="buttons">
               <CtrlButton text="testtest" isActive={false} sendColors={["#CC000A", "#CFD008"]} parentMethod={this.changeColor} />
-              <CtrlButton text="testtest" isActive={false} sendColors={["#17BACE", "#1CD51A"]} parentMethod={this.changeColor} />
+              <CtrlButton text="testtest" isActive={false} sendColors={["#17BACE", "#1CD51A", "#9DFF5A"]} parentMethod={this.changeColor} />
               <CtrlButton text="testtest" isActive={false} sendColors={["#AE00CC"]} parentMethod={this.changeColor} />
           </div>
         </div>

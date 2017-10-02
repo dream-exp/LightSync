@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 
 class DrawColor extends Component {
-	constructor(props) {
-		super(props);
-		
-		this.state = {
-			color: "yellow",
-		};
-	}
-
 	render() {
 		var style = {
-			backgroundColor: this.state.color
+			backgroundColor: this.props.color["color"]
 		}
+		console.log(style)
 		return (
 			<div className="drawColor" style={style} />
 		);

@@ -26,7 +26,6 @@ class CtrlButton extends Component {
 	}
 
 	render() {
-		console.log(this.props.sendColors)
 		return (
 			<div className="ctrl_button">
 				<button className={this.state.isActive ? "active ctrl_btn" : "ctrl_btn"} onClick={this.clickHandle} >
