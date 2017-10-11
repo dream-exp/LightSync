@@ -23,7 +23,7 @@ var io = socket_io.listen(userServer);
 
 
 userApp.get('/', function(req, res) {
-    res.sendFile(path.resolve('index.html'));
+    res.sendFile(path.resolve('../client-front/build/index.html'));
 });
 
 // クライアントが接続してきたときの処理
