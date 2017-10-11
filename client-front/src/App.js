@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import io from 'socket.io-client';
 import './App.css';
 import Wait from './Wait'
 import Splash from './Splash'
 import DrawColor from './DrawColor'
+
+let socket = io('http://lightsync.xyz:3000')
 
 class App extends Component {
   constructor(props) {
@@ -10,18 +13,24 @@ class App extends Component {
     
     this.state = {
       status: "Splash", // Splash, DrawColor
+      color: ""
     };
   }
 
   componentDidMount() {
+    socket.on('greeting', color => {
+      this.setState({color: color})
+    });
+
     this.interval = setTimeout(()=>{
       this.setState({
-        status: "Wait"
+        status: "DrawColor"
       });
-    }, 1000);
+    }, 3000);
   }
 
   render() {
+    console.log(this.state.color)
     switch(this.state.status) {
       case "Wait":
         return (
@@ -33,7 +42,7 @@ class App extends Component {
         );
       case "DrawColor":
         return (
-          <DrawColor />
+          <DrawColor color={this.state.color}/>
         );
     }
   }

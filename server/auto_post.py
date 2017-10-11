@@ -16,10 +16,14 @@ import time
 os.environ['NO_PROXY'] = 'localhost'
 
 url = 'http://localhost:3001/api/color'
-data = {'colors' : ['#E07070', '#70E070', '#7070E0', '#E0E070', '#E070E0']}
+data = {'colors' : ['#E07070', '#70E070', '#7070E0', '#E0E070']}
 headers = {'Accept' : 'application/json', 'Content-type' : 'application/json'}
 
-for k in range(100):
-    res = requests.post(url, data=json.dumps(data), headers=headers)
+for k in range(50):
+    res = requests.post(url, data=json.dumps({'colors' : ['#E07070']}), headers=headers)
     print('{0:3d} {1}'.format(k, res))
-    time.sleep(0.1)
+    time.sleep(3)
+
+    res = requests.post(url, data=json.dumps({'colors' : ['#7070E0']}), headers=headers)
+    print('{0:3d} {1}'.format(k, res))
+    time.sleep(3)

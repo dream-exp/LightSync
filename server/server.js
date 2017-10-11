@@ -37,6 +37,7 @@ io.sockets.on('connection', function(socket) {
     });
 
     socket.on('control color', function (data, fn) {
+        console.log(data);
         sendColors(data.colors);
     });
 });
