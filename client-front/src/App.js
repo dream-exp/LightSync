@@ -5,7 +5,7 @@ import Wait from './Wait'
 import Splash from './Splash'
 import DrawColor from './DrawColor'
 
-let socket = io('http://192.168.0.5:3000')
+let socket = io('http://lightsync.xyz:3000')
 
 class App extends Component {
   constructor(props) {
