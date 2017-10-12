@@ -26,6 +26,10 @@ userApp.get('/', function(req, res) {
     res.sendFile(path.resolve('../client-front/build/index.html'));
 });
 
+userApp.get('/controller/', function(req, res) {
+    res.sendFile(path.resolve('../admin-front/build/index.html'));
+});
+
 // クライアントが接続してきたときの処理
 io.sockets.on('connection', function(socket) {
     socket.emit('greeting', {color : 'black'}, function(data) {

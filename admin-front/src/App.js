@@ -5,7 +5,7 @@ import CurrColor from './CurrColor'
 import CtrlButton from './CtrlButton'
 
 
-let socket = io('http://172.20.10.2:3000')
+let socket = io('http://lightsync.xyz')
 
 class App extends Component {
   constructor(props) {
